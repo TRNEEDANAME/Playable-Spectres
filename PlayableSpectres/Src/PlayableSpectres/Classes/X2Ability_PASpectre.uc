@@ -38,7 +38,7 @@ static function X2AbilityTemplate CreatePA_Horror()
 	local X2Condition_UnitImmunities UnitImmunityCondition;
 	local X2Effect_ApplyWeaponDamage HorrorDamageEffect;
 	local X2Effect_PerkAttachForFX WillLossEffect;
-	local X2Effect_LifeSteal LifeStealEffect;
+	local X2Effect_PA_LifeSteal PA_LifeStealEffect;
 	local array<name> SkipExclusions;
 
 	`CREATE_X2ABILITY_TEMPLATE(Template, 'PA_Horror');
@@ -99,8 +99,8 @@ static function X2AbilityTemplate CreatePA_Horror()
 	HorrorDamageEffect.bIgnoreArmor = default.PASpectre_DoesHorror_IgnoreArmor;
 	Template.AddTargetEffect(HorrorDamageEffect);
 
-	LifeStealEffect = new class'X2Effect_LifeSteal';
-	Template.AddTargetEffect(LifeStealEffect);
+	PA_LifeStealEffect = new class'X2Effect_PA_LifeSteal';
+	Template.AddTargetEffect(PA_LifeStealEffect);
 
 	Template.BuildNewGameStateFn = TypicalAbility_BuildGameState;
 	Template.BuildInterruptGameStateFn = TypicalAbility_BuildInterruptGameState;
