@@ -1,29 +1,31 @@
-class X2_Ability_PASpectre extends X2Ability config(GameData_PASpectre_Ability);
+class X2Ability_PASpectre extends X2Ability config(GameData_PASpectre_Ability);
 
 var localized string WillLostFriendlyName, WillLossString;
 var localized string ShadowbindUnconsciousFriendlyName;
 
 var name PA_Spectre_ShadownBoundLinkName;
 
-var config bool  PASpectre_DoesHorror_ExcludeFriendlyToSource;
-var config bool  PASpectre_DoesHorror_ExcludeRobotic;
-var config bool  PASpectre_DoesHorror_FailOnNonUnits;
-var config bool  PASpectre_DoesHorror_ExcludeAlien;
-var config bool  PASpectre_DoesHorror_IgnoreArmor;
+var config bool PASpectre_DoesHorror_ExcludeFriendlyToSource;
+var config bool PASpectre_DoesHorror_ExcludeRobotic;
+var config bool PASpectre_DoesHorror_FailOnNonUnits;
+var config bool PASpectre_DoesHorror_ExcludeAlien;
+var config bool PASpectre_DoesHorror_IgnoreArmor;
 var config bool PASpectre_DoesHorror_ConsumeAllPoints;
-
-var config int PASpectre_Horror_ActionPointCost;
-var config int PASpectre_Horror_Cooldown;
-var config int PASpectre_Horror_ToHitBaseChance;
-
-var config int PA_Spectre_ShadownBound_ActionPoints;
-var config bool PA_Spectre_ShadownBound_ConsumeAllPoints;
-var config int PA_Spectre_ShadownBound_Cooldown;
+var config bool PA_SpectreDontdisplayMoveBeginInAbilitySummary;
 var config bool PA_DoesShadowBound_ExcludeDead;
 var config bool PA_DoesShadowBound_ExcludeRobotic;
 var config bool PA_DoesShadowBound_ExcludeAlien;
 var config bool PA_DoesShadowBound_ExcludeFriendlyToSource;
 var config bool PA_DoesShadowUnitDisappearWithSpectreDeath;
+var config bool PA_Spectre_ShadownBound_ConsumeAllPoints;
+var config bool PA_SpectreDontdisplayMoveEndInAbilitySummary;
+
+var config int PASpectre_Horror_ActionPointCost;
+var config int PASpectre_Horror_Cooldown;
+var config int PASpectre_Horror_ToHitBaseChance;
+var config int PA_Spectre_ShadownBound_ActionPoints;
+var config int PA_Spectre_ShadownBound_Cooldown;
+
 
 static function array<X2DataTemplate> CreateTemplates()
 {
@@ -34,6 +36,9 @@ static function array<X2DataTemplate> CreateTemplates()
 	Templates.AddItem(class'X2Ability_Sectoid'.static.AddLinkedEffectAbility(default.PA_Spectre_ShadownBoundLinkName, default.PA_Spectre_ShadownBoundLinkName, PA_Spectre_ShadownBoundLink_BuildVisualizationSyncDelegate));
 	Templates.AddItem(class'X2Ability_Sectoid'.static.AddKillLinkedUnits('KillShadowboundLinkedUnits', default.PA_Spectre_ShadownBoundLinkName, class'X2Action_Death'));
 	Templates.AddItem(CreatePA_ShadowUnitInitialize());
+
+	Templates.AddItem(CreatePA_SpectreMoveBegin());
+	Templates.AddItem(CreatePA_SpectreMoveEnd());
 
 	return Templates;
 }
@@ -83,7 +88,7 @@ static function X2AbilityTemplate CreatePA_Horror()
 	// Target conditions
 	UnitPropertyCondition = new class'X2Condition_UnitProperty';
 	UnitPropertyCondition.ExcludeDead = true;
-	UnitPropertyCondition.ExcludeFriendlyToSource = PASpectre_DoesHorror_ExcludeFriendlyToSource;
+	UnitPropertyCondition.ExcludeFriendlyToSource = default.PASpectre_DoesHorror_ExcludeFriendlyToSource;
 	UnitPropertyCondition.ExcludeRobotic = default.PASpectre_DoesHorror_ExcludeRobotic;
 	UnitPropertyCondition.FailOnNonUnits = default.PASpectre_DoesHorror_FailOnNonUnits;
 	UnitPropertyCondition.ExcludeAlien = default.PASpectre_DoesHorror_ExcludeAlien;
@@ -109,7 +114,7 @@ static function X2AbilityTemplate CreatePA_Horror()
 	HorrorDamageEffect.bIgnoreArmor = default.PASpectre_DoesHorror_IgnoreArmor;
 	Template.AddTargetEffect(HorrorDamageEffect);
 
-	LifeStealEffect = new class'X2Effect_PA_LifeSteal';
+	LifeStealEffect = new class'X2Effect_LifeSteal';
 	Template.AddTargetEffect(LifeStealEffect);
 
 	Template.BuildNewGameStateFn = TypicalAbility_BuildGameState;
@@ -241,7 +246,7 @@ static function X2DataTemplate CreatePA_Shadowbind(name AbilityTemplateName, nam
 
 	UnconsciousEffect = class'X2StatusEffects'.static.CreateUnconsciousStatusEffect();
 	UnconsciousEffect.bRemoveWhenSourceDies = false;
-	UnconsciousEffect.VisualizationFn = ShadowbindUnconsciousVisualization;
+	UnconsciousEffect.VisualizationFn = PA_ShadowbindUnconsciousVisualization;
 	Template.AddTargetEffect(UnconsciousEffect);
 
 	SpawnShadowbindUnit = new class'X2Effect_SpawnShadowbindUnit';
@@ -251,7 +256,7 @@ static function X2DataTemplate CreatePA_Shadowbind(name AbilityTemplateName, nam
 	Template.AddTargetEffect(SpawnShadowbindUnit);
 
 	Template.BuildNewGameStateFn = TypicalMoveEndAbility_BuildGameState;
-	Template.BuildVisualizationFn = Shadowbind_BuildVisualization;
+	Template.BuildVisualizationFn = PA_Shadowbind_BuildVisualization;
 	Template.BuildInterruptGameStateFn = TypicalMoveEndAbility_BuildInterruptGameState;
 
 	Template.CinescriptCameraType = "Spectre_Shadowbind";
@@ -349,7 +354,7 @@ simulated function PA_Shadowbind_BuildVisualization(XComGameState VisualizeGameS
 
 		TransformStopParents.AddItem(MoveTurnAction);
 
-		SpectreMoveInsertTransform(VisualizeGameState, SourceMetaData, SourceMoveBegin.ParentActions, TransformStopParents);
+		PA_SpectreMoveInsertTransform(VisualizeGameState, SourceMetaData, SourceMoveBegin.ParentActions, TransformStopParents);
 	}
 
 	// Line up the Source's Fire, Target's React, and Shadow's anim
@@ -445,6 +450,143 @@ static function X2AbilityTemplate CreatePA_ShadowUnitInitialize()
 	Template.AddShooterEffect(SpectralArmyUnitEffect);
 
 	Template.bSkipFireAction = true;
+	Template.BuildNewGameStateFn = TypicalAbility_BuildGameState;
+
+	return Template;
+}
+
+static function X2AbilityTemplate CreatePA_SpectreMoveBegin()
+{
+	local X2AbilityTemplate Template;
+	local X2AbilityTrigger_EventListener EventListener;
+	local X2Condition_UnitEffects UnitEffects;
+	local X2Effect_PerkAttachForFX PerkEffect;
+
+	`CREATE_X2ABILITY_TEMPLATE(Template, 'PA_SpectreMoveBegin');
+	Template.eAbilityIconBehaviorHUD = eAbilityIconBehavior_NeverShow;
+	Template.Hostility = eHostility_Neutral;
+	Template.bDontDisplayInAbilitySummary = default.PA_SpectreDontdisplayMoveBeginInAbilitySummary;
+
+	Template.AdditionalAbilities.AddItem('PA_SpectreMoveEnd');
+
+	Template.AbilityCosts.Length = 0;
+
+	Template.AbilityToHitCalc = default.DeadEye;
+	Template.AbilityTargetStyle = default.SelfTarget;
+
+	UnitEffects = new class'X2Condition_UnitEffects';
+	UnitEffects.AddExcludeEffect('SpectreBeginMoveEffect', 'AA_DuplicateEffectIgnored');
+	UnitEffects.AddExcludeEffect(class'X2Effect_Vanish'.default.EffectName, 'AA_DuplicateEffectIgnored');
+	Template.AbilityShooterConditions.AddItem(UnitEffects);
+
+	// At the start of a move, if the unit is open, have it close
+	EventListener = new class'X2AbilityTrigger_EventListener';
+	EventListener.ListenerData.Deferral = ELD_OnStateSubmitted;
+	EventListener.ListenerData.EventID = 'ObjectMoved';
+	EventListener.ListenerData.EventFn = class'XComGameState_Ability'.static.SpectreStandardMoveListener;
+	EventListener.ListenerData.Filter = eFilter_Unit;
+	Template.AbilityTriggers.AddItem(EventListener);
+
+	PerkEffect = new class'X2Effect_PerkAttachForFX';
+	PerkEffect.EffectName = 'SpectreBeginMoveEffect';
+	Template.AddShooterEffect(PerkEffect);
+
+	Template.BuildNewGameStateFn = TypicalAbility_BuildGameState;
+	Template.BuildVisualizationFn = SpectreMoveBegin_BuildVisualization;
+
+	Template.bSkipFireAction = true;
+	
+	return Template;
+}
+
+simulated function PA_SpectreMoveBegin_BuildVisualization(XComGameState VisualizeGameState)
+{
+	local X2Action_MoveBegin MoveBeginAction;
+	local X2Action_MoveEnd MoveEndAction;
+	local XComGameStateVisualizationMgr LocalVisualizationMgr;
+	local XComGameStateHistory History;
+	local VisualizationActionMetadata ActionMetaData;
+	local array<X2Action> MoveEndActionParents;
+	local XComGameStateContext_Ability Context;
+
+	LocalVisualizationMgr = `XCOMVISUALIZATIONMGR;
+	History = `XCOMHISTORY;
+
+	Context = XComGameStateContext_Ability(VisualizeGameState.GetContext());
+
+	ActionMetadata.StateObject_OldState = History.GetGameStateForObjectID(Context.InputContext.SourceObject.ObjectID, eReturnType_Reference, VisualizeGameState.HistoryIndex - 1);
+	ActionMetadata.StateObject_NewState = VisualizeGameState.GetGameStateForObjectID(Context.InputContext.SourceObject.ObjectID);
+	ActionMetadata.VisualizeActor = History.GetVisualizer(Context.InputContext.SourceObject.ObjectID);
+
+	MoveBeginAction = X2Action_MoveBegin(LocalVisualizationMgr.GetNodeOfType(LocalVisualizationMgr.BuildVisTree, class'X2Action_MoveBegin', ActionMetadata.VisualizeActor));
+	if( MoveBeginAction == none )
+	{
+		MoveBeginAction = X2Action_MoveBegin(LocalVisualizationMgr.GetNodeOfType(LocalVisualizationMgr.VisualizationTree, class'X2Action_MoveBegin', ActionMetadata.VisualizeActor));
+	}
+	
+	MoveEndAction = X2Action_MoveEnd(LocalVisualizationMgr.GetNodeOfType(LocalVisualizationMgr.BuildVisTree, class'X2Action_MoveEnd', ActionMetadata.VisualizeActor));
+	if( MoveEndAction == none )
+	{
+		MoveEndAction = X2Action_MoveEnd(LocalVisualizationMgr.GetNodeOfType(LocalVisualizationMgr.VisualizationTree, class'X2Action_MoveEnd', ActionMetadata.VisualizeActor));
+	}
+
+	if( MoveBeginAction == none ||
+		MoveEndAction == none )
+	{
+		`RedScreen("SpectreMoveBegin_BuildVisualization: Failed to find move actions");
+		return;
+	}
+
+	MoveEndActionParents.AddItem(MoveEndAction);
+
+	PA_SpectreMoveInsertTransform(VisualizeGameState, ActionMetaData, MoveBeginAction.ParentActions, MoveEndActionParents);
+}
+
+private function PA_SpectreMoveInsertTransform(XComGameState VisualizeGameState, VisualizationActionMetadata ActionMetaData, array<X2Action> TransformStartParents, array<X2Action> TransformStopParents)
+{
+	local X2Action_PlayAnimation AnimAction;
+
+	AnimAction = X2Action_PlayAnimation(class'X2Action_PlayAnimation'.static.AddToVisualizationTree(ActionMetaData, VisualizeGameState.GetContext(), true, , TransformStartParents));
+	AnimAction.Params.AnimName = 'HL_Transform_Start';
+
+	AnimAction = X2Action_PlayAnimation(class'X2Action_PlayAnimation'.static.AddToVisualizationTree(ActionMetaData, VisualizeGameState.GetContext(), true, , TransformStopParents));
+	AnimAction.Params.AnimName = 'HL_Transform_Stop';
+}
+
+static function X2AbilityTemplate CreatePA_SpectreMoveEnd()
+{
+	local X2AbilityTemplate Template;
+	local X2AbilityTrigger_EventListener EventListener;
+	local X2Condition_UnitEffects UnitEffects;
+	local X2Effect_RemoveEffects PerkEffect;
+
+	`CREATE_X2ABILITY_TEMPLATE(Template, 'PA_SpectreMoveEnd');
+	Template.eAbilityIconBehaviorHUD = eAbilityIconBehavior_NeverShow;
+	Template.Hostility = eHostility_Neutral;
+
+	Template.bDontDisplayInAbilitySummary = default.PA_SpectreDontdisplayMoveEndInAbilitySummary;
+	Template.AbilityCosts.Length = 0;
+
+	Template.AbilityToHitCalc = default.DeadEye;
+	Template.AbilityTargetStyle = default.SelfTarget;
+
+	UnitEffects = new class'X2Condition_UnitEffects';
+	UnitEffects.AddRequireEffect('SpectreBeginMoveEffect', 'AA_MissingRequiredEffect');
+	UnitEffects.AddExcludeEffect(class'X2Effect_Vanish'.default.EffectName, 'AA_DuplicateEffectIgnored');
+	Template.AbilityShooterConditions.AddItem(UnitEffects);
+
+	// At the start of a move, if the unit is open, have it close
+	EventListener = new class'X2AbilityTrigger_EventListener';
+	EventListener.ListenerData.Deferral = ELD_OnStateSubmitted;
+	EventListener.ListenerData.EventID = 'ObjectMoved';
+	EventListener.ListenerData.EventFn = class'XComGameState_Ability'.static.SpectreStandardMoveListener;
+	EventListener.ListenerData.Filter = eFilter_Unit;
+	Template.AbilityTriggers.AddItem(EventListener);
+
+	PerkEffect = new class'X2Effect_RemoveEffects';
+	PerkEffect.EffectNamesToRemove.AddItem('PA_SpectreBeginMoveEffect');
+	Template.AddShooterEffect(PerkEffect);
+
 	Template.BuildNewGameStateFn = TypicalAbility_BuildGameState;
 
 	return Template;

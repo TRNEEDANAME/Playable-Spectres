@@ -1,4 +1,4 @@
-class X2EventListener_PA_Horror extends X2EventListener config(GameData_PASpectreAbility)
+class X2EventListener_PA_Horror extends X2EventListener config(GameData_PASpectreAbility);
 
 var const localized string HorrorActivated;
 var protected const config WillEventRollData HorrorM1WillRollData;
