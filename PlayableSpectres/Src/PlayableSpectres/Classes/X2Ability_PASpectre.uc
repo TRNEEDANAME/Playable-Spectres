@@ -492,7 +492,7 @@ static function X2AbilityTemplate CreatePA_SpectreMoveBegin()
 	Template.AddShooterEffect(PerkEffect);
 
 	Template.BuildNewGameStateFn = TypicalAbility_BuildGameState;
-	Template.BuildVisualizationFn = SpectreMoveBegin_BuildVisualization;
+	Template.BuildVisualizationFn = PA_SpectreMoveBegin_BuildVisualization;
 
 	Template.bSkipFireAction = true;
 	
