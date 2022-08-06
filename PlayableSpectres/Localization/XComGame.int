@@ -1,0 +1,38 @@
+[PA_SpectreGun X2WeaponTemplate]
+FriendlyName="Spectre Plasma Rifle"
+BriefSummary="Spectre Plasma Rifle"
+TacticalText="<Bullet/> Spectre Plasma Rifle. <Bullet/> Not usable by human soldiers -- it is made [bold]with[/bold] the Spectre; the weapon is a part of it."
+AbilityDescName="Spectre Plasma Rifle"
+
+[PA_Spectre_Tech X2TechTemplate]
+DisplayName="Reactivating a Spectre"
+Summary="Using a deactivated Spectre, we could reprogram one of them for our use in the field"
+CodeName="Schrödinger"
+LongDescript="The reprogramming of the Spectre was successful."
+
+[XGCharacterGenerator_Spectre]
+JunkSparkFirstName="Spectre-"
+JunkSparkLastNamePrefix="000"
+
+[AlienSpectreClass X2SoldierClassTemplate]
++DisplayName="Spectre"
++ClassSummary="Powerful swarm of nano-bots that can perfectly replicate any humanoid enemy unit."
++LeftAbilityTreeTitle="Spectre"
++RightAbilityTreeTitle="Spectre"
++AbilityTreeTitles[0]="Spectre"
++AbilityTreeTitles[1]="Spectre"
++AbilityTreeTitles[3]="XCOM"
+;ALPHABETICAL ORDER
++RandomNickNames[0]="Spectre"
++RandomNickNames[1]="Shadow"
++RandomNickNames[2]="Horror"
++RandomNickNames[3]="Million Ants"
++RandomNickNames[4]="Killer Bees"
++RandomNicknames[5]="Black Sand"
++RandomNicknames[6]="Bots"
+
+[PA_Horror X2AbilityTemplate]
+LocFriendlyName="Horror"
+LocHelpText="Tentacles from the Spectre reach out and bind a humanoid target, damaging the target and healing the Spectre."
+LocLongDescription="Tentacles from the Spectre reach out and bind a humanoid target, damaging the target and healing the Spectre."
+LocFlyOverText="Horror!"
