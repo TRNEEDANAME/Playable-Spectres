@@ -1,7 +1,10 @@
 class X2Item_PASpectre_Weapons extends X2Item config(GameData_WeaponsData);
 
 var config WeaponDamageValue PA_SpectreGun_BaseDamage;
+var config array<WeaponDamageValue> PA_SpectrePsiAmp_ExtraDamage;
 var config array<int> PA_SpectreGun_RangeAccuracy;
+
+var config bool PA_SpectreGun_InfiniteAmmo;
 
 var config int PA_SpectreGun_Aim;
 var config int PA_SpectreGun_CritChance;
@@ -10,6 +13,7 @@ var config int PA_SpectreGun_SoundRange;
 var config int PA_SpectreGun_EnvironmentDamage;
 var config int PA_SpectreGun_IdealRange;
 var config int PASpectre_NumUpgradeSlots;
+
 
 static function array<X2DataTemplate> CreateTemplates()
 {
@@ -33,7 +37,7 @@ static function X2DataTemplate CreateTemplate_PA_SpectreGun()
 	Template.ItemCat = 'weapon';
 	Template.WeaponCat = 'PA_SpectreGunCat';
 	Template.strImage = "img:///UILibrary_Common.AlienWeapons.ViperRifle";
-	Template.EquipSound = "Magnetic_Weapon_Equip";
+	Template.EquipSound = "Beam_Weapon_Equip";
 	Template.RemoveTemplateAvailablility(Template.BITFIELD_GAMEAREA_Multiplayer);
 
 	Template.RangeAccuracy = default.PA_SpectreGun_RangeAccuracy;
@@ -61,6 +65,7 @@ static function X2DataTemplate CreateTemplate_PA_SpectreGun()
 	Template.CanBeBuilt = false;
 	Template.TradingPostValue = 30;
 	Template.bInfiniteItem = true;
+	Template.InfiniteAmmo = default.PA_SpectreGun_InfiniteAmmo;
 
 	Template.DamageTypeTemplateName = 'Projectile_Conventional';
 
@@ -78,21 +83,19 @@ static function X2DataTemplate CreateTemplate_PA_SpectrePsiAmp()
 	Template.WeaponTech = 'alien';
 	Template.strImage = "img:///UILibrary_StrategyImages.X2InventoryIcons.Inv_Psi_Amp";
 	Template.InventorySlot = eInvSlot_SecondaryWeapon;
-	Template.StowedLocation = eSlot_RightBack;
+
 	Template.RemoveTemplateAvailablility(Template.BITFIELD_GAMEAREA_Multiplayer); //invalidates multiplayer availability
 
-	Template.CanBeBuilt = false;
-
-	Template.DamageTypeTemplateName = 'Psi';
-
-	Template.Abilities.AddItem('PA_Horror');
-	
-	Template.ExtraDamage = class'X2Item_DefaultWeapons'.default.PSIAMPT3_ABILITYDAMAGE;
+	Template.ExtraDamage = default.PA_SpectrePsiAmp_ExtraDamage;
 
 	Template.StartingItem = true;
 	Template.CanBeBuilt = false;
 
 	Template.bInfiniteItem = true;
+
+	Template.DamageTypeTemplateName = 'Psi';
+
+	Template.Abilities.AddItem('PA_Horror');
 
 	return Template;
 }
