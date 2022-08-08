@@ -1,6 +1,6 @@
 class X2Effect_PA_LifeSteal extends X2Effect;
 
-var float LifeAmountMultiplier;
+var float PA_LifeAmountMultiplier;
 
 simulated protected function OnEffectAdded(const out EffectAppliedData ApplyEffectParameters, XComGameState_BaseObject kNewTargetState, XComGameState NewGameState, XComGameState_Effect NewEffectState)
 {
@@ -29,9 +29,9 @@ simulated protected function OnEffectAdded(const out EffectAppliedData ApplyEffe
 		{
 			LifeAmount = (OldTargetUnit.GetCurrentStat(eStat_HP) - TargetUnit.GetCurrentStat(eStat_HP));
 
-			if( LifeAmountMultiplier != 0.0f )
+			if( PA_LifeAmountMultiplier != 0.0f )
 			{
-				LifeAmount = LifeAmount * LifeAmountMultiplier;
+				LifeAmount = LifeAmount * PA_LifeAmountMultiplier;
 			}
 
 			SourceUnit = XComGameState_Unit(NewGameState.ModifyStateObject(class'XComGameState_Unit', SourceObjectID));
