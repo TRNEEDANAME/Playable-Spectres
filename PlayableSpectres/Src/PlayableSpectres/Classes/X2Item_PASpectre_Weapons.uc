@@ -12,7 +12,7 @@ var config int PA_SpectreGun_ClipSize;
 var config int PA_SpectreGun_SoundRange;
 var config int PA_SpectreGun_EnvironmentDamage;
 var config int PA_SpectreGun_IdealRange;
-var config int PASpectre_NumUpgradeSlots;
+var config int PA_SpectreGun_NumUpgradeSlots;
 
 
 static function array<X2DataTemplate> CreateTemplates()
@@ -49,7 +49,7 @@ static function X2DataTemplate CreateTemplate_PA_SpectreGun()
 	Template.iEnvironmentDamage = default.PA_SpectreGun_EnvironmentDamage;
 	Template.iIdealRange = default.PA_SpectreGun_IdealRange;
 
-	Template.NumUpgradeSlots = default.PASpectre_NumUpgradeSlots;
+	Template.NumUpgradeSlots = default.PA_SpectreGun_NumUpgradeSlots;
 
 	Template.DamageTypeTemplateName = 'Heavy';
 
