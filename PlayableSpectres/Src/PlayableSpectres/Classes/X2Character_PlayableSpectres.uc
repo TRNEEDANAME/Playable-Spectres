@@ -80,24 +80,6 @@ static function X2CharacterTemplate CreateTemplate_Spectre()
 	CharTemplate.Abilities.AddItem('Shattered');
 	CharTemplate.Abilities.AddItem('Interact_UseElevator');
 
-	// bondmate abilities
-	//CharTemplate.Abilities.AddItem('BondmateResistantWill');
-	CharTemplate.Abilities.AddItem('BondmateSolaceCleanse');
-	CharTemplate.Abilities.AddItem('BondmateSolacePassive');
-	CharTemplate.Abilities.AddItem('BondmateTeamwork');
-	CharTemplate.Abilities.AddItem('BondmateTeamwork_Improved');
-	CharTemplate.Abilities.AddItem('BondmateSpotter_Aim');
-	CharTemplate.Abilities.AddItem('BondmateSpotter_Aim_Adjacency');
-	//CharTemplate.Abilities.AddItem('BondmateSpotter_Crit');
-	//CharTemplate.Abilities.AddItem('BondmateSpotter_Crit_Adjacency');
-	//CharTemplate.Abilities.AddItem('BondmateReturnFire_Passive');
-	//CharTemplate.Abilities.AddItem('BondmateReturnFire');
-	//CharTemplate.Abilities.AddItem('BondmateReturnFire_Adjacency');
-	//CharTemplate.Abilities.AddItem('BondmateReturnFire_Improved_Passive');
-	//CharTemplate.Abilities.AddItem('BondmateReturnFire_Improved');
-	//CharTemplate.Abilities.AddItem('BondmateReturnFire_Improved_Adjacency');
-	CharTemplate.Abilities.AddItem('BondmateDualStrike');
-
 	CharTemplate.strTargetIconImage = class'UIUtilities_Image'.const.TargetIcon_Alien;
 
 	return CharTemplate;
