@@ -31,4 +31,4 @@ Because it allows you to change the source code and compile the mod as you see f
 **YES**, you can, you can open issues, pull request, discussions...
 
 ### Can I fork it ?
-Yes you can, just credit the original author [Gazgemauch(https://www.nexusmods.com/xcom2/users/71160223) and me
+Yes you can, just credit the original author [Gazgemauch](https://www.nexusmods.com/xcom2/users/71160223) and me
