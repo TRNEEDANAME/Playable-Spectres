@@ -46,5 +46,7 @@
     <Content Include="Src\PlayableSpectres\Classes\X2Effect_PA_LifeSteal.uc" />
     <Content Include="Src\PlayableSpectres\Classes\X2EventListener_PA_Horror.uc" />
     <Content Include="Config\XcomInfiltration.ini" />
+    <Content Include="Config\XcomPAS_ArmorCost.ini" />
+    <Content Include="Src\PlayableSpectres\Classes\X2Item_PAS_Armors.uc" />
   </ItemGroup>
 </Project>
