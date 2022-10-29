@@ -1,36 +1,34 @@
-# Playable Spectres [WOTC]
+## Description
 
-Description = Allows you to have a Spectres on your side. You will get them as a project in the proving grounds. 
+This is the github repository of the **mod project** folder for my [Playable Spectres](https://steamcommunity.com/sharedfiles/filedetails/?id=2826984284). 
+This will be the most up to date project folder from the mod, even before it's on steam.
 
-## Cost
+## How to build the mod
 
-- Rookie =  1 elerium core, 1 spectre corpse, 300 supplies
-- Veteran = 2 core, 2 corpse, 350 supplies
-- Commander = 3 core, 3 corpse, 400 supplies
-- Legend = 5 core, 5 corpse, 500 supplies
+### What you will need
 
-## Required mod and DLC
+- The Modbuddy SDK (Search in the steam's tool sections)
+- Follow the wondeful [guide from the Xcom 2 modding subreddit](https://www.reddit.com/r/xcom2mods/wiki/firsttime#wiki_how_to_install_and_set_up_xcom_2_wotc_sdk)
+- Start the SDK, go in file then "open mod project" (you will need to extract the project's folder).
+- Then do your changes
 
-Required DLC = WOTC
-Required mod = none
+### Mods used by this mod
 
-## Bug and feature request
+#### Required mods
 
-To report a bug, use the appropriate discussion 
-To ask for a feature, use the appropriate discussion
+- [X2WOTCCommunityHighlander v1.24.0](https://steamcommunity.com/workshop/filedetails/?id=1134256495)
 
-### Known bugs
+#### Supported mod
 
-- The horror ability does nothing
+- Support for [[WOTC] Covert Infiltration](https://steamcommunity.com/sharedfiles/filedetails/?id=2567230730)
 
-## Credits
+## FAQ
 
-- [Gazgemauch](https://www.nexusmods.com/xcom2/users/71160223), he gave me the permissions to publish and improve the mod.
-- Commander Ed Nammoc for playtesting and his suggestions with the mod
+### Why not post the "ready to use" version of the mod ?
+Because it allows you to change the source code and compile the mod as you see fit. If enough people ask, I will release the proper mod to github as well.
 
-### Check out my other "playable alien" mod
+### Can I do pull requests ?
+**YES**, you can, you can open issues, pull request, discussions...
 
-- [Playable Rulers [WOTC]](https://steamcommunity.com/sharedfiles/filedetails/?id=2823002635)
-- [Playable Codex [WOTC]](https://steamcommunity.com/sharedfiles/filedetails/?id=2827187144)
-- [Playable Gatekeepers [WOTC]](https://steamcommunity.com/sharedfiles/filedetails/?id=2827217224)
-- [Playable Sectopod [WOTC]](https://steamcommunity.com/sharedfiles/filedetails/?id=2827534840)
+### Can I fork it ?
+Yes you can, just credit the original author [Gazgemauch](https://www.nexusmods.com/xcom2/users/71160223) and me
