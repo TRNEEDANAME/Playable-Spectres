@@ -49,7 +49,7 @@ static function X2CharacterTemplate CreateTemplate_Spectre()
 	CharTemplate.bCanTakeCover = true;
 	CharTemplate.MaxFlightPitchDegrees = 0;
 
-	CharTemplate.bIsAlien = true;
+	CharTemplate.bIsAlien = false;
 	CharTemplate.bIsHumanoid = true;
 	CharTemplate.bIsAdvent = false;
 	CharTemplate.bIsCivilian = false;
@@ -64,7 +64,7 @@ static function X2CharacterTemplate CreateTemplate_Spectre()
 
 	CharTemplate.bCanBeTerrorist = false;
 	CharTemplate.bCanBeCriticallyWounded = false;
-	CharTemplate.bIsAfraidOfFire = true;
+	CharTemplate.bIsAfraidOfFire = false;
 
 	CharTemplate.Abilities.AddItem('SpectreMoveBegin');
 
@@ -79,6 +79,23 @@ static function X2CharacterTemplate CreateTemplate_Spectre()
 	CharTemplate.Abilities.AddItem('Obsessed');
 	CharTemplate.Abilities.AddItem('Shattered');
 	CharTemplate.Abilities.AddItem('Interact_UseElevator');
+	CharTemplate.Abilities.AddItem('SpectreImmunities');
+	CharTemplate.Abilities.AddItem('Interact_ActivateSpark');
+	CharTemplate.Abilities.AddItem('Interact_AtmosphereComputer');
+	CharTemplate.Abilities.AddItem('Interact_UseElevator');
+	CharTemplate.Abilities.AddItem('Interact_DLC2Transmitter');
+	CharTemplate.Abilities.AddItem('Interact_PlantBomb');
+	CharTemplate.Abilities.AddItem('Interact_TakeVial');
+	CharTemplate.Abilities.AddItem('Interact_StasisTube');
+	CharTemplate.Abilities.AddItem('Interact_MarkSupplyCrate');
+	CharTemplate.Abilities.AddItem('Interact_ActivateAscensionGate');
+	CharTemplate.Abilities.AddItem('CarryUnit');
+	CharTemplate.Abilities.AddItem('PutDownUnit');
+	CharTemplate.Abilities.AddItem('PlaceEvacZone');
+	CharTemplate.Abilities.AddItem('LiftOffAvenger');
+	CharTemplate.Abilities.AddItem('HunkerDown');
+	CharTemplate.Abilities.AddItem('Revive');
+
 
 	CharTemplate.strTargetIconImage = class'UIUtilities_Image'.const.TargetIcon_Alien;
 
