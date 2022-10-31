@@ -4,13 +4,16 @@ var config int Plated_Spectre_Black_V;
 var config array<name> Plated_Spectre_R_Tech;
 var config array<name> Plated_Spectre_Buid_Cost_Type;
 var config array<int> Plated_Spectre_Build_Cost_Quan;
+var config array<name> Plated_Spectre_Build_Type;
 var config int Plated_Spectre_Inge_Score;
 
 var config int Powered_Spectre_Black_V;
 var config array<name> Powered_Spectre_R_Tech;
 var config array<name> Powered_Spectre_Buid_Cost_Type;
 var config array<int> Powered_Spectre_Build_Cost_Quan;
+var config array<name> Powered_Spectre_Build_Type;
 var config int Powered_Spectre_Inge_Score;
+
 
 static function array<X2DataTemplate> CreateTemplates()
 {
@@ -27,7 +30,7 @@ static function X2DataTemplate CreateSpectreArmor()
 {
 	local X2ArmorTemplate Template;
 
-	`CREATE_X2TEMPLATE(class'X2ArmorTemplate', Template, 'SpectreArmor');
+	`CREATE_X2TEMPLATE(class'X2ArmorTemplate', Template, 'PA_SpectreArmor');
 	Template.strImage = "img:///UILibrary_XPACK_StrategyImages.Inv_HORArmorConv";
 	Template.StartingItem = true;
 	Template.CanBeBuilt = false;
@@ -54,7 +57,7 @@ static function X2DataTemplate CreatePlatedSpectreArmor()
 	local ArtifactCost	Resources;
 	local int i;
 
-	`CREATE_X2TEMPLATE(class'X2ArmorTemplate', Template, 'PlatedSpectreArmor');
+	`CREATE_X2TEMPLATE(class'X2ArmorTemplate', Template, 'PA_PlatedSpectreArmor');
 	Template.strImage = "img:///UILibrary_XPACK_StrategyImages.Inv_HORArmorPlat";
 	Template.ItemCat = 'armor';
 	Template.bAddsUtilitySlot = false;
@@ -104,7 +107,7 @@ static function X2DataTemplate CreatePoweredSpectreArmor()
 	local ArtifactCost	Resources;
 	local int i;
 
-	`CREATE_X2TEMPLATE(class'X2ArmorTemplate', Template, 'PoweredSpectreArmor');
+	`CREATE_X2TEMPLATE(class'X2ArmorTemplate', Template, 'PA_PoweredSpectreArmor');
 	Template.strImage = "img:///UILibrary_XPACK_StrategyImages.Inv_HORArmorPowr";
 	Template.ItemCat = 'armor';
 	Template.bAddsUtilitySlot = false;

@@ -36,3 +36,21 @@ LocFriendlyName="Horror"
 LocHelpText="Tentacles from the Spectre reach out and bind a humanoid target, damaging the target and healing the Spectre."
 LocLongDescription="Tentacles from the Spectre reach out and bind a humanoid target, damaging the target and healing the Spectre."
 LocFlyOverText="Horror!"
+
+[PA_SpectreArmor X2ArmorTemplate]
+FriendlyName="Spectre's Nano bots"
+BriefSummary="Because of their robotic nature, Spectres can't wear traditional armor"
+TacticalText="<Bullet/> They're nano bots have a great resistance, but we could improve it with further research"
+AbilityDescName="Spectre's nano bots"
+
+[PA_PlatedSpectreArmor X2ArmorTemplate]
+FriendlyName="Spectre's Nano bots"
+BriefSummary="Because of their robotic nature, Spectres can't wear traditional armor"
+TacticalText="<Bullet/> They're nano bots have been infused with Alien Alloys, making them more resistant"
+AbilityDescName="Spectre's nano bots"
+
+[PA_PoweredSpectreArmor X2ArmorTemplate]
+FriendlyName="Spectre's Nano bots"
+BriefSummary="Because of their robotic nature, Spectres can't wear traditional armor"
+TacticalText="<Bullet/> They're nano bots have been infused with Elerium, making them even more resistant"
+AbilityDescName="Spectre's nano bots"
