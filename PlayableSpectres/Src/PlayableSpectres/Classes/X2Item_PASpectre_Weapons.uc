@@ -63,7 +63,7 @@ static function X2DataTemplate CreateTemplate_PA_SpectreGun()
 	Template.iPhysicsImpulse = 5;
 
 	Template.CanBeBuilt = false;
-	Template.StartingItem = false;
+	Template.StartingItem = true;
 	Template.bInfiniteItem = true;
 	Template.InfiniteAmmo = default.PA_SpectreGun_InfiniteAmmo;
 
