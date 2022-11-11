@@ -96,6 +96,7 @@ static function X2DataTemplate CreateTemplate_PA_SpectrePsiAmp()
 	Template.DamageTypeTemplateName = 'Psi';
 
 	Template.Abilities.AddItem('PA_Horror');
+	Template.Abilities.AddItem('Horror');
 
 	return Template;
 }

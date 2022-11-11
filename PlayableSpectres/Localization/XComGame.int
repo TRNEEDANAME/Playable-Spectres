@@ -4,6 +4,12 @@ BriefSummary="Spectre Plasma Rifle"
 TacticalText="<Bullet/> Spectre Plasma Rifle. <Bullet/> Not usable by human soldiers -- it is made [bold]with[/bold] the Spectre; the weapon is a part of it."
 AbilityDescName="Spectre Plasma Rifle"
 
+[PA_SpectrePsiAmp X2WeaponTemplate]
+FriendlyName="Spectre's power"
+BriefSummary="Spectre's power"
+TacticalText="<Bullet/> Spectre take their power from their surroundings. <Bullet/> Not usable by human soldiers -- it's a part of them !"
+AbilityDescName="Spectre's power"
+
 [PA_Spectre_Tech X2TechTemplate]
 DisplayName="Reactivating a Spectre"
 Summary="Using a deactivated Spectre, we could reprogram one of them for our use in the field"
@@ -40,17 +46,17 @@ LocFlyOverText="Horror!"
 [PA_SpectreArmor X2ArmorTemplate]
 FriendlyName="Spectre's Nano bots"
 BriefSummary="Because of their robotic nature, Spectres can't wear traditional armor"
-TacticalText="<Bullet/> They're nano bots have a great resistance, but we could improve it with further research"
+TacticalText="<Bullet/> Their nano bots have a great resistance, but we could improve it with further research"
 AbilityDescName="Spectre's nano bots"
 
 [PA_PlatedSpectreArmor X2ArmorTemplate]
 FriendlyName="Spectre's Nano bots"
 BriefSummary="Because of their robotic nature, Spectres can't wear traditional armor"
-TacticalText="<Bullet/> They're nano bots have been infused with Alien Alloys, making them more resistant"
+TacticalText="<Bullet/> Their nano bots have been infused with Alien Alloys, making them more resistant"
 AbilityDescName="Spectre's nano bots"
 
 [PA_PoweredSpectreArmor X2ArmorTemplate]
 FriendlyName="Spectre's Nano bots"
 BriefSummary="Because of their robotic nature, Spectres can't wear traditional armor"
-TacticalText="<Bullet/> They're nano bots have been infused with Elerium, making them even more resistant"
+TacticalText="<Bullet/> Their nano bots have been infused with Elerium, making them even more resistant"
 AbilityDescName="Spectre's nano bots"
