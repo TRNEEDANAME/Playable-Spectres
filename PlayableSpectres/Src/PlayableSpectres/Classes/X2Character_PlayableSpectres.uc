@@ -80,7 +80,6 @@ static function X2CharacterTemplate CreateTemplate_Spectre()
 	CharTemplate.Abilities.AddItem('Shattered');
 	CharTemplate.Abilities.AddItem('Interact_UseElevator');
 	CharTemplate.Abilities.AddItem('SpectreImmunities');
-	CharTemplate.Abilities.AddItem('Interact_ActivateSpark');
 	CharTemplate.Abilities.AddItem('Interact_AtmosphereComputer');
 	CharTemplate.Abilities.AddItem('Interact_UseElevator');
 	CharTemplate.Abilities.AddItem('Interact_DLC2Transmitter');
