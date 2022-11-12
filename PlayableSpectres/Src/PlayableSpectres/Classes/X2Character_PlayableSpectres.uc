@@ -67,6 +67,7 @@ static function X2CharacterTemplate CreateTemplate_Spectre()
 	CharTemplate.bIsAfraidOfFire = false;
 
 	CharTemplate.Abilities.AddItem('SpectreMoveBegin');
+	CharTemplate.Abilities.AddItem('PA_Horror');
 
 	CharTemplate.Abilities.AddItem('Loot');
 	CharTemplate.Abilities.AddItem('Evac');
