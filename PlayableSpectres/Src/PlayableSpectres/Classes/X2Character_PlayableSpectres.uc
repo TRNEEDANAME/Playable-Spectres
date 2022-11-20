@@ -156,14 +156,7 @@ static function X2CharacterTemplate CreateTemplate_ShadowbindUnit(name CharTempl
 	CharTemplate.Abilities.AddItem('Evac');
 	CharTemplate.Abilities.AddItem('PlaceEvacZone');
 	CharTemplate.Abilities.AddItem('LiftOffAvenger');
-	CharTemplate.Abilities.AddItem('Knockout');
-	CharTemplate.Abilities.AddItem('KnockoutSelf');
-	CharTemplate.Abilities.AddItem('Panicked');
-	CharTemplate.Abilities.AddItem('Berserk');
-	CharTemplate.Abilities.AddItem('Obsessed');
-	CharTemplate.Abilities.AddItem('Shattered');
 	CharTemplate.Abilities.AddItem('Interact_UseElevator');
-	CharTemplate.Abilities.AddItem('SpectreImmunities');
 	CharTemplate.Abilities.AddItem('Interact_AtmosphereComputer');
 	CharTemplate.Abilities.AddItem('Interact_UseElevator');
 	CharTemplate.Abilities.AddItem('Interact_DLC2Transmitter');
