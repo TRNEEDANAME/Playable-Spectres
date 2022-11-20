@@ -152,5 +152,32 @@ static function X2CharacterTemplate CreateTemplate_ShadowbindUnit(name CharTempl
 	CharTemplate.Abilities.AddItem('SpectreImmunities');
 	CharTemplate.Abilities.AddItem('ShadowUnitSplit');
 
+	CharTemplate.Abilities.AddItem('Loot');
+	CharTemplate.Abilities.AddItem('Evac');
+	CharTemplate.Abilities.AddItem('PlaceEvacZone');
+	CharTemplate.Abilities.AddItem('LiftOffAvenger');
+	CharTemplate.Abilities.AddItem('Knockout');
+	CharTemplate.Abilities.AddItem('KnockoutSelf');
+	CharTemplate.Abilities.AddItem('Panicked');
+	CharTemplate.Abilities.AddItem('Berserk');
+	CharTemplate.Abilities.AddItem('Obsessed');
+	CharTemplate.Abilities.AddItem('Shattered');
+	CharTemplate.Abilities.AddItem('Interact_UseElevator');
+	CharTemplate.Abilities.AddItem('SpectreImmunities');
+	CharTemplate.Abilities.AddItem('Interact_AtmosphereComputer');
+	CharTemplate.Abilities.AddItem('Interact_UseElevator');
+	CharTemplate.Abilities.AddItem('Interact_DLC2Transmitter');
+	CharTemplate.Abilities.AddItem('Interact_PlantBomb');
+	CharTemplate.Abilities.AddItem('Interact_TakeVial');
+	CharTemplate.Abilities.AddItem('Interact_StasisTube');
+	CharTemplate.Abilities.AddItem('Interact_MarkSupplyCrate');
+	CharTemplate.Abilities.AddItem('Interact_ActivateAscensionGate');
+	CharTemplate.Abilities.AddItem('CarryUnit');
+	CharTemplate.Abilities.AddItem('PutDownUnit');
+	CharTemplate.Abilities.AddItem('PlaceEvacZone');
+	CharTemplate.Abilities.AddItem('LiftOffAvenger');
+	CharTemplate.Abilities.AddItem('HunkerDown');
+	CharTemplate.Abilities.AddItem('Revive');
+
 	return CharTemplate;
 }
