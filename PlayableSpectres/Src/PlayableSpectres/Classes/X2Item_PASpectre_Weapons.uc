@@ -90,7 +90,6 @@ static function X2DataTemplate CreateTemplate_PA_SpectrePsiAmp()
 
 	Template.StartingItem = true;
 	Template.CanBeBuilt = false;
-
 	Template.bInfiniteItem = true;
 
 	Template.DamageTypeTemplateName = 'Psi';
