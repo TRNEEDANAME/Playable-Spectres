@@ -35,6 +35,7 @@ static function X2DataTemplate CreateTemplate_PA_SpectreGun()
 
 	Template.WeaponPanelImage = "_MagneticRifle";
 	Template.ItemCat = 'weapon';
+	Template.WeaponTech = "conventional";
 	Template.WeaponCat = 'PA_SpectreGunCat';
 	Template.strImage = "img:///UILibrary_Common.AlienWeapons.ViperRifle";
 	Template.EquipSound = "Beam_Weapon_Equip";
@@ -62,9 +63,10 @@ static function X2DataTemplate CreateTemplate_PA_SpectreGun()
 	Template.GameArchetype = "WP_SpectreRifle.WP_SpectreRifle";
 	Template.iPhysicsImpulse = 5;
 
-	Template.CanBeBuilt = false;
 	Template.StartingItem = true;
+	Template.CanBeBuilt = false;
 	Template.bInfiniteItem = true;
+
 	Template.InfiniteAmmo = default.PA_SpectreGun_InfiniteAmmo;
 
 	Template.DamageTypeTemplateName = 'Projectile_Conventional';
@@ -80,7 +82,7 @@ static function X2DataTemplate CreateTemplate_PA_SpectrePsiAmp()
 
 	Template.ItemCat = 'weapon';
 	Template.WeaponCat = 'PA_SpectrePsiCat';
-	Template.WeaponTech = 'alien';
+	Template.WeaponTech = "conventional";
 	Template.strImage = "img:///UILibrary_StrategyImages.X2InventoryIcons.Inv_Psi_Amp";
 	Template.InventorySlot = eInvSlot_SecondaryWeapon;
 
