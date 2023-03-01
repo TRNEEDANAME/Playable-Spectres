@@ -24,11 +24,11 @@ static function X2DataTemplate CreatePA_Spectre_TechTemplate()
 	`CREATE_X2TEMPLATE(class'X2TechTemplate', Template, 'PA_Spectre_Tech');
 	Template.bProvingGround = true;
 	Template.bRepeatable = true;
-	Template.strImage = "img:///UILibrary_XPACK_StrategyImages.Corpse_Spectre'"; 
+	Template.strImage = "img:///UILibrary_XPACK_StrategyImages.Corpse_Spectre"; 
 	Template.SortingTier = 1;
 	Template.ResearchCompletedFn = ResearchCompleted;
 	Template.PointsToComplete = class'X2StrategyElement_DefaultTechs'.static.StafferXDays(1, default.SpectreTech_Days);
-	Template.Requirements.RequiredTechs.AddItem('AutopsySpectre');;
+	Template.Requirements.RequiredTechs.AddItem('AutopsySpectre');
 	return Template;
 }
 
