@@ -1,11 +1,6 @@
-class PA_SpectreTech extends X2StrategyElement config(PlayableAdvent);
+class PA_SpectreTech extends X2StrategyElement config(XcomStrategyTuning);
 
-var config int SpectreTech_Days;
-var config int SpectreTech_SupplyCost;
-var config int SpectreTech_CorpseCost;
-var config int SpectreTech_CoreCost;
-var config array<name> SpectreTech_RequiredTech;
-var config name SpectreTech_RequiredCorpse;
+var config int SpectreTech_PointToComplete;
 
 static function array<X2DataTemplate> CreateTemplates()
 {
@@ -27,7 +22,7 @@ static function X2DataTemplate CreatePA_Spectre_TechTemplate()
 	Template.strImage = "img:///UILibrary_XPACK_StrategyImages.Corpse_Spectre"; 
 	Template.SortingTier = 1;
 	Template.ResearchCompletedFn = ResearchCompleted;
-	Template.PointsToComplete = class'X2StrategyElement_DefaultTechs'.static.StafferXDays(1, default.SpectreTech_Days);
+	Template.PointsToComplete = default.SpectreTech_PointToComplete;
 	Template.Requirements.RequiredTechs.AddItem('AutopsySpectre');
 	return Template;
 }
@@ -68,7 +63,7 @@ static function XComGameState_Unit CreateUnit(XComGameState NewGameState)
 	CharTemplate = CharTemplateManager.FindCharacterTemplate('PA_Spectre');
 	UnitState = CharTemplate.CreateInstanceFromTemplate(NewGameState);
 	
-	CharGen = `XCOMGAME.spawn( class 'XGCharacterGenerator_PlayableSpectre' );
+	CharGen = `XCOMGAME.spawn(class 'XGCharacterGenerator_Spectre' );
 	CharGen.GenerateName(0, 'Country_Spark', strFirst, strLast);
 	UnitState.SetCharacterName(strFirst, strLast, "");
 	UnitState.SetCountry('Country_Spark');
