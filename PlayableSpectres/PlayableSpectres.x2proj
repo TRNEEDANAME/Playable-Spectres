@@ -42,9 +42,6 @@
     </Content>
     <Content Include="Src\PlayableSpectres\Classes\XGCharacterGenerator_Spectre.uc" />
     <Content Include="PublishedFileId.ID" />
-    <Content Include="Src\PlayableSpectres\Classes\X2Ability_PASpectre.uc" />
-    <Content Include="Src\PlayableSpectres\Classes\X2Effect_PA_LifeSteal.uc" />
-    <Content Include="Src\PlayableSpectres\Classes\X2EventListener_PA_Horror.uc" />
     <Content Include="Config\XcomInfiltration.ini" />
     <Content Include="Config\XcomPAS_ArmorCost.ini" />
     <Content Include="Src\PlayableSpectres\Classes\X2Item_PAS_Armors.uc" />
